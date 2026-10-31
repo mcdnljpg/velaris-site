@@ -11,9 +11,9 @@
             padding: 0;
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Убираем черный фон, оставляем только картинку */
+            /* Картинка на весь экран без черных полос */
             background: url('https://raw.githubusercontent.com/mcdnljpg/velaris-site/main/027cd4a1-c7a2-4658-a2f5-45c013d06b27.jpg') no-repeat center center fixed;
-            background-size: cover; /* Растягиваем картинку на весь экран */
+            background-size: 100% 100%;
             color: white;
             display: flex;
             justify-content: center;
@@ -21,11 +21,11 @@
             overflow: hidden;
         }
 
-        /* Контейнер для контента (без фона и рамок) */
+        /* Контейнер для контента */
         .content {
             text-align: center;
-            /* Добавляем легкую тень тексту, чтобы он читался на фоне */
-            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.8));
+            /* Тень для всего блока, чтобы текст читался на фоне */
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9));
         }
 
         /* Заголовок */
@@ -47,7 +47,7 @@
             text-shadow: 0 0 10px #8A2BE2;
         }
 
-        /* Кнопка Играть */
+        /* Кнопка Играть (теперь копирует IP) */
         .play-btn {
             display: inline-block;
             background: linear-gradient(135deg, #8A2BE2, #FF00FF);
@@ -61,6 +61,8 @@
             box-shadow: 0 0 25px rgba(255, 0, 255, 0.8);
             text-transform: uppercase;
             letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
         }
 
         .play-btn:hover {
@@ -97,7 +99,8 @@
         <h1>VELARIS</h1>
         <p>Уютное выживание и веселые прятки</p>
 
-        <a href="minecraft://connect?server=velarismc.mcsh.io" class="play-btn">Играть</a>
+        <!-- Кнопка теперь копирует IP -->
+        <button onclick="copyIP()" class="play-btn">Скопировать IP</button>
 
         <div class="links">
             <a href="https://discord.gg/5R7RcuV8GR" target="_blank">Discord</a>
@@ -105,6 +108,19 @@
             <a href="https://www.donationalerts.com/r/velarisprivelege" target="_blank">Донат</a>
         </div>
     </div>
+
+    <!-- Скрипт для копирования -->
+    <script>
+        function copyIP() {
+            const ip = "velarismc.mcsh.io";
+            navigator.clipboard.writeText(ip).then(() => {
+                alert("IP скопирован! Вставь его в игре: Сетевая игра -> Добавить сервер.");
+            }).catch(err => {
+                // Если браузер блокирует буфер обмена, показываем окошко для ручного копирования
+                prompt("Скопируй IP вручную:", ip);
+            });
+        }
+    </script>
 
 </body>
 </html>

@@ -20,7 +20,7 @@
             overflow-x: hidden;
         }
 
-        /* Главный экран (первый блок) */
+        /* Главный экран */
         .hero {
             height: 100vh;
             display: flex;
@@ -48,6 +48,7 @@
             text-shadow: 0 0 10px #8A2BE2;
         }
 
+        /* Кнопка копирования IP */
         .play-btn {
             display: inline-block;
             background: linear-gradient(135deg, #8A2BE2, #FF00FF);
@@ -63,7 +64,7 @@
             letter-spacing: 2px;
             border: none;
             cursor: pointer;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .play-btn:hover {
@@ -71,27 +72,46 @@
             box-shadow: 0 0 40px rgba(255, 0, 255, 1);
         }
 
+        /* БЛОК БОЛЬШИХ ССЫЛОК */
         .links {
             display: flex;
             justify-content: center;
             gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .links a {
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background: rgba(20, 20, 20, 0.7);
+            border: 2px solid #8A2BE2;
+            border-radius: 12px;
             color: #ffffff;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
-            text-shadow: 0 0 10px #8A2BE2;
-            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+            backdrop-filter: blur(5px);
         }
 
-        .links a:hover {
-            color: #FF00FF;
-            text-shadow: 0 0 15px #FF00FF;
+        .link-btn:hover {
+            background: #8A2BE2;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.9);
+            transform: translateY(-5px);
+            border-color: #FF00FF;
         }
 
-        /* Блок с информацией (ниже экрана) */
+        .link-btn img, .link-btn .icon {
+            font-size: 24px;
+        }
+
+        /* Блок с информацией */
         .about-section {
             width: 100%;
             padding: 80px 20px;
@@ -110,7 +130,6 @@
             text-align: center;
         }
 
-        /* Карточки с режимами */
         .cards-container {
             display: flex;
             flex-wrap: wrap;
@@ -126,7 +145,7 @@
             padding: 30px;
             width: 300px;
             text-align: center;
-            backdrop-filter: blur(10px); /* Эффект матового стекла */
+            backdrop-filter: blur(10px);
             box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
             transition: transform 0.3s ease;
         }
@@ -157,40 +176,42 @@
 </head>
 <body>
 
-    <!-- Первый экран -->
     <div class="hero">
         <h1>VELARIS</h1>
         <p class="subtitle">Твой мир начинается здесь</p>
 
         <button onclick="copyIP()" class="play-btn">Скопировать IP</button>
 
+        <!-- БОЛЬШИЕ КНОПКИ-ССЫЛКИ -->
         <div class="links">
-            <a href="https://discord.gg/5R7RcuV8GR" target="_blank">Discord</a>
-            <a href="https://t.me/Vellrisabot" target="_blank">Поддержка</a>
-            <a href="https://www.donationalerts.com/r/velarisprivelege" target="_blank">Донат</a>
+            <a href="https://discord.gg/5R7RcuV8GR" target="_blank" class="link-btn">
+                <span class="icon">💬</span> Discord
+            </a>
+            <a href="https://t.me/Vellrisabot" target="_blank" class="link-btn">
+                <span class="icon">🆘</span> Поддержка
+            </a>
+            <a href="https://www.donationalerts.com/r/velarisprivelege" target="_blank" class="link-btn">
+                <span class="icon">💎</span> Донат
+            </a>
         </div>
     </div>
 
-    <!-- Блок "О сервере" (прокручивается вниз) -->
     <div class="about-section">
         <h2>Добро пожаловать на Velaris</h2>
         
         <div class="cards-container">
-            <!-- Карточка 1 -->
             <div class="card">
                 <div class="card-icon">⛏</div>
                 <h3>Выживание</h3>
                 <p>Уютный мир для строительства, экономики и общения. Твои постройки защищены приватами, а на аукционе всегда можно найти что-то интересное.</p>
             </div>
 
-            <!-- Карточка 2 -->
             <div class="card">
                 <div class="card-icon">🙈</div>
                 <h3>Прятки (BlockHunt)</h3>
                 <p>Динамичная мини-игра, где ты можешь превратиться в любой блок и спрятаться от охотников. Сможешь продержаться до конца раунда?</p>
             </div>
 
-            <!-- Карточка 3 -->
             <div class="card">
                 <div class="card-icon">💎</div>
                 <h3>Честный донат</h3>
@@ -199,7 +220,6 @@
         </div>
     </div>
 
-    <!-- Скрипт для копирования -->
     <script>
         function copyIP() {
             const ip = "velarismc.mcsh.io";
@@ -210,6 +230,9 @@
             });
         }
     </script>
+
+</body>
+</html>
 
 </body>
 </html>

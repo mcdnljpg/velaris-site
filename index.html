@@ -29,6 +29,9 @@
             align-items: center;
             text-align: center;
             filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9));
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
 
         h1 {
@@ -55,7 +58,7 @@
             color: white;
             text-decoration: none;
             padding: 18px 60px;
-            font-size: 24px;
+            font-size: 28px; /* Увеличили */
             font-weight: bold;
             border-radius: 12px;
             transition: all 0.3s ease;
@@ -72,43 +75,47 @@
             box-shadow: 0 0 40px rgba(255, 0, 255, 1);
         }
 
-        /* БЛОК БОЛЬШИХ ССЫЛОК */
+        /* БЛОК ОГРОМНЫХ ССЫЛОК */
         .links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            gap: 20px;
+            flex-wrap: wrap; /* Чтобы на телефонах переносились */
+            width: 100%;
+            max-width: 1000px; /* Ограничитель ширины */
         }
 
         .link-btn {
+            flex: 1; /* Растягивает кнопки на равную ширину */
+            min-width: 250px; /* Минимальная ширина кнопки */
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 15px 35px;
-            background: rgba(20, 20, 20, 0.7);
-            border: 2px solid #8A2BE2;
-            border-radius: 12px;
+            gap: 15px;
+            padding: 20px 30px;
+            background: rgba(10, 10, 10, 0.8);
+            border: 3px solid #8A2BE2;
+            border-radius: 15px;
             color: #ffffff;
             text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 26px; /* Огромный шрифт */
+            font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
             backdrop-filter: blur(5px);
         }
 
         .link-btn:hover {
             background: #8A2BE2;
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.9);
-            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(138, 43, 226, 1);
+            transform: translateY(-5px) scale(1.02);
             border-color: #FF00FF;
         }
 
-        .link-btn img, .link-btn .icon {
-            font-size: 24px;
+        .link-btn .icon {
+            font-size: 32px; /* Большие иконки */
         }
 
         /* Блок с информацией */
@@ -182,7 +189,7 @@
 
         <button onclick="copyIP()" class="play-btn">Скопировать IP</button>
 
-        <!-- БОЛЬШИЕ КНОПКИ-ССЫЛКИ -->
+        <!-- ОГРОМНЫЕ ССЫЛКИ -->
         <div class="links">
             <a href="https://discord.gg/5R7RcuV8GR" target="_blank" class="link-btn">
                 <span class="icon">💬</span> Discord
@@ -230,9 +237,6 @@
             });
         }
     </script>
-
-</body>
-</html>
 
 </body>
 </html>

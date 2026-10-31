@@ -5,32 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VELARIS | Minecraft Server</title>
     <style>
-        /* Сброс стилей */
+        /* Сброс стилей и фон */
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
+            min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Картинка на весь экран без черных полос */
             background: url('https://raw.githubusercontent.com/mcdnljpg/velaris-site/main/027cd4a1-c7a2-4658-a2f5-45c013d06b27.jpg') no-repeat center center fixed;
             background-size: 100% 100%;
             color: white;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Контейнер для контента */
-        .content {
+        /* Главный экран (первый блок) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            /* Тень для всего блока, чтобы текст читался на фоне */
             filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9));
         }
 
-        /* Заголовок */
         h1 {
-            font-size: 60px;
+            font-size: 70px;
             margin: 0 0 10px 0;
             color: #ffffff;
             text-shadow: 0 0 15px #8A2BE2, 0 0 30px #8A2BE2;
@@ -38,16 +40,14 @@
             font-weight: 900;
         }
 
-        /* Подзаголовок */
-        p {
+        .subtitle {
             color: #ffffff;
             margin-bottom: 40px;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             text-shadow: 0 0 10px #8A2BE2;
         }
 
-        /* Кнопка Играть (теперь копирует IP) */
         .play-btn {
             display: inline-block;
             background: linear-gradient(135deg, #8A2BE2, #FF00FF);
@@ -63,6 +63,7 @@
             letter-spacing: 2px;
             border: none;
             cursor: pointer;
+            margin-bottom: 40px;
         }
 
         .play-btn:hover {
@@ -70,9 +71,7 @@
             box-shadow: 0 0 40px rgba(255, 0, 255, 1);
         }
 
-        /* Ссылки внизу */
         .links {
-            margin-top: 50px;
             display: flex;
             justify-content: center;
             gap: 30px;
@@ -91,21 +90,112 @@
             color: #FF00FF;
             text-shadow: 0 0 15px #FF00FF;
         }
+
+        /* Блок с информацией (ниже экрана) */
+        .about-section {
+            width: 100%;
+            padding: 80px 20px;
+            box-sizing: border-box;
+            background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0.9) 20%, rgba(10,10,10,0.95) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-section h2 {
+            font-size: 40px;
+            color: #ffffff;
+            text-shadow: 0 0 20px #8A2BE2;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* Карточки с режимами */
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.6);
+            border: 2px solid #8A2BE2;
+            border-radius: 15px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            backdrop-filter: blur(10px); /* Эффект матового стекла */
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
+        }
+
+        .card-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #FF00FF;
+            text-shadow: 0 0 10px #FF00FF;
+        }
+
+        .card p {
+            color: #dcdcdc;
+            font-size: 16px;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body>
 
-    <div class="content">
+    <!-- Первый экран -->
+    <div class="hero">
         <h1>VELARIS</h1>
-        <p>Уютное выживание и веселые прятки</p>
+        <p class="subtitle">Твой мир начинается здесь</p>
 
-        <!-- Кнопка теперь копирует IP -->
         <button onclick="copyIP()" class="play-btn">Скопировать IP</button>
 
         <div class="links">
             <a href="https://discord.gg/5R7RcuV8GR" target="_blank">Discord</a>
             <a href="https://t.me/Vellrisabot" target="_blank">Поддержка</a>
             <a href="https://www.donationalerts.com/r/velarisprivelege" target="_blank">Донат</a>
+        </div>
+    </div>
+
+    <!-- Блок "О сервере" (прокручивается вниз) -->
+    <div class="about-section">
+        <h2>Добро пожаловать на Velaris</h2>
+        
+        <div class="cards-container">
+            <!-- Карточка 1 -->
+            <div class="card">
+                <div class="card-icon">⛏</div>
+                <h3>Выживание</h3>
+                <p>Уютный мир для строительства, экономики и общения. Твои постройки защищены приватами, а на аукционе всегда можно найти что-то интересное.</p>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="card">
+                <div class="card-icon">🙈</div>
+                <h3>Прятки (BlockHunt)</h3>
+                <p>Динамичная мини-игра, где ты можешь превратиться в любой блок и спрятаться от охотников. Сможешь продержаться до конца раунда?</p>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="card">
+                <div class="card-icon">💎</div>
+                <h3>Честный донат</h3>
+                <p>Никакого Pay-to-Win. Только удобства, уникальные префиксы и возможность поддержать развитие проекта. Все привилегии выдаются навсегда.</p>
+            </div>
         </div>
     </div>
 
@@ -116,7 +206,6 @@
             navigator.clipboard.writeText(ip).then(() => {
                 alert("IP скопирован! Вставь его в игре: Сетевая игра -> Добавить сервер.");
             }).catch(err => {
-                // Если браузер блокирует буфер обмена, показываем окошко для ручного копирования
                 prompt("Скопируй IP вручную:", ip);
             });
         }

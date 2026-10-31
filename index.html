@@ -19,7 +19,7 @@
             overflow: hidden;
         }
 
-        /* Твоя фоновая картинка */
+        /* Фоновая картинка */
         .background {
             position: absolute;
             top: 0;
@@ -27,38 +27,39 @@
             width: 100%;
             height: 100%;
             background: url('https://raw.githubusercontent.com/mcdnljpg/velaris-site/main/027cd4a1-c7a2-4658-a2f5-45c013d06b27.jpg') no-repeat center center/cover;
-            opacity: 0.5; /* Чуть затемним фон, чтобы текст читался */
             z-index: -1;
         }
 
-        /* Контейнер по центру */
+        /* Контейнер по центру (теперь прозрачный) */
         .container {
             text-align: center;
-            background: rgba(10, 10, 10, 0.85); /* Темная полупрозрачная плашка */
-            padding: 40px 60px;
+            background: transparent; /* Убрали черный фон */
+            padding: 40px;
             border-radius: 20px;
-            border: 2px solid #8A2BE2;
-            box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
-            max-width: 500px;
+            /* Оставили только неоновую рамку для красоты, можешь её тоже убрать, если не нравится */
+            border: 2px solid rgba(138, 43, 226, 0.5); 
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+            max-width: 600px;
             width: 90%;
-            backdrop-filter: blur(5px); /* Размытие фона за плашкой */
         }
 
         /* Заголовок */
         h1 {
-            font-size: 42px;
-            margin: 0 0 10px 0;
+            font-size: 52px;
+            margin: 0 0 15px 0;
             color: #ffffff;
-            text-shadow: 0 0 10px #8A2BE2, 0 0 20px #8A2BE2;
-            letter-spacing: 3px;
-            font-weight: 800;
+            text-shadow: 2px 2px 4px #000, 0 0 20px #8A2BE2; /* Жесткая тень для читаемости */
+            letter-spacing: 4px;
+            font-weight: 900;
         }
 
         /* Подзаголовок */
         p {
-            color: #b084fc;
-            margin-bottom: 35px;
-            font-size: 16px;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px #000, 0 0 10px #8A2BE2; /* Тень для текста */
+            margin-bottom: 40px;
+            font-size: 18px;
+            font-weight: bold;
         }
 
         /* Кнопка Играть */
@@ -67,40 +68,42 @@
             background: linear-gradient(135deg, #8A2BE2, #FF00FF);
             color: white;
             text-decoration: none;
-            padding: 15px 50px;
-            font-size: 22px;
+            padding: 18px 60px;
+            font-size: 24px;
             font-weight: bold;
-            border-radius: 10px;
+            border-radius: 12px;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.7);
             text-transform: uppercase;
             letter-spacing: 1px;
+            border: 2px solid #fff;
         }
 
         .play-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 0, 255, 1);
+            box-shadow: 0 0 40px rgba(255, 0, 255, 1);
         }
 
         /* Ссылки внизу */
         .links {
-            margin-top: 35px;
+            margin-top: 40px;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
         }
 
         .links a {
-            color: #b084fc;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px #000, 0 0 10px #8A2BE2;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 16px;
+            font-weight: bold;
             transition: color 0.3s ease;
-            border-bottom: 1px dashed transparent;
         }
 
         .links a:hover {
             color: #FF00FF;
-            border-bottom: 1px dashed #FF00FF;
+            text-shadow: 0 0 15px #FF00FF;
         }
     </style>
 </head>
@@ -112,7 +115,6 @@
         <h1>VELARIS</h1>
         <p>Уютное выживание и веселые прятки</p>
 
-        <!-- Главная кнопка запуска игры -->
         <a href="minecraft://connect?server=velarismc.mcsh.io" class="play-btn">Играть</a>
 
         <div class="links">

@@ -73,12 +73,30 @@
             letter-spacing: 2px;
             border: none;
             cursor: pointer;
-            margin-bottom: 30px;
+            margin-bottom: 15px; /* Уменьшил отступ, чтобы версия была ближе */
         }
 
         .play-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 0 40px rgba(255, 0, 255, 1);
+        }
+
+        /* НОВЫЙ БЛОК: Версия игры */
+        .version-info {
+            color: #b084fc;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px #000;
+            letter-spacing: 1px;
+        }
+
+        .version-info span {
+            color: #ffffff;
+            background: rgba(138, 43, 226, 0.4);
+            padding: 2px 8px;
+            border-radius: 5px;
+            border: 1px solid #8A2BE2;
         }
 
         /* БЛОК ССЫЛОК */
@@ -190,6 +208,9 @@
         <p class="subtitle">Твой мир начинается здесь</p>
 
         <button onclick="copyIP()" class="play-btn">Скопировать IP</button>
+        
+        <!-- БЛОК С ВЕРСИЕЙ -->
+        <div class="version-info">Версия игры: <span>1.20.4</span></div>
 
         <div class="links">
             <a href="https://discord.gg/5R7RcuV8GR" target="_blank" class="link-btn">

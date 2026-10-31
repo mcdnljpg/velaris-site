@@ -11,7 +11,6 @@
             padding: 0;
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Картинка теперь заполняет экран без искажений */
             background: url('https://raw.githubusercontent.com/mcdnljpg/velaris-site/main/027cd4a1-c7a2-4658-a2f5-45c013d06b27.jpg') no-repeat center center fixed;
             background-size: cover; 
             color: white;
@@ -23,8 +22,7 @@
 
         /* Главный экран */
         .hero {
-            height: 100vh; 
-            min-height: 600px;
+            min-height: 100vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -32,7 +30,7 @@
             text-align: center;
             filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.9));
             width: 100%;
-            padding: 0 20px;
+            padding: 40px 20px;
             box-sizing: border-box;
         }
 
@@ -55,11 +53,13 @@
 
         /* Кнопка копирования IP */
         .play-btn {
-            display: inline-block;
+            display: block; /* Блочный элемент, чтобы занимать всю ширину */
+            width: 100%;
+            max-width: 400px;
             background: linear-gradient(135deg, #8A2BE2, #FF00FF);
             color: white;
             text-decoration: none;
-            padding: 18px 40px;
+            padding: 18px 0;
             font-size: 24px;
             font-weight: bold;
             border-radius: 12px;
@@ -69,9 +69,7 @@
             letter-spacing: 2px;
             border: none;
             cursor: pointer;
-            margin-bottom: 40px;
-            width: 90%;
-            max-width: 400px;
+            margin-bottom: 30px;
         }
 
         .play-btn:hover {
@@ -79,24 +77,23 @@
             box-shadow: 0 0 40px rgba(255, 0, 255, 1);
         }
 
-        /* БЛОК ССЫЛОК */
+        /* БЛОК ССЫЛОК (всегда в столбик) */
         .links {
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Принудительно столбик */
+            align-items: center;    /* Центрируем */
             gap: 15px;
-            flex-wrap: wrap; 
             width: 100%;
-            max-width: 1000px; 
+            max-width: 400px;       /* Ограничиваем ширину как у кнопки IP */
         }
 
         .link-btn {
-            flex: 1; 
-            min-width: 200px; 
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 15px 20px;
+            padding: 18px 0;
             background: rgba(10, 10, 10, 0.8);
             border: 2px solid #8A2BE2;
             border-radius: 12px;
@@ -109,12 +106,13 @@
             transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
             backdrop-filter: blur(5px);
+            box-sizing: border-box; /* Чтобы рамки не вылезали */
         }
 
         .link-btn:hover {
             background: #8A2BE2;
             box-shadow: 0 0 30px rgba(138, 43, 226, 1);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             border-color: #FF00FF;
         }
 
@@ -178,15 +176,6 @@
             color: #dcdcdc;
             font-size: 16px;
             line-height: 1.5;
-        }
-
-        /* СПЕЦИАЛЬНЫЕ НАСТРОЙКИ ДЛЯ ТЕЛЕФОНОВ */
-        @media (max-width: 800px) {
-            h1 { font-size: 50px; letter-spacing: 2px; }
-            .subtitle { font-size: 18px; margin-bottom: 30px; }
-            .hero { justify-content: flex-start; padding-top: 80px; } 
-            .links { flex-direction: column; width: 90%; } 
-            .link-btn { min-width: 100%; font-size: 22px; padding: 20px; }
         }
     </style>
 </head>
